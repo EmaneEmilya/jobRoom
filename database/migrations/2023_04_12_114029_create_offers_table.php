@@ -14,7 +14,14 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->id();
+            $table->id_offer();
+            $table->string('title');
+            $table->text('description');
+            $table->string('society');
+            $table->string('city');
+            $table->dateTime('date');
+            $table->unsignedBigInteger('recruiter_id')->nullable();
+            $table->foreign('recruiter_id')->references('id_recruiter')->on('recruiters');
             $table->timestamps();
         });
     }
