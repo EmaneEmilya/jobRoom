@@ -18,7 +18,7 @@ class CreateApplicationsTable extends Migration
                   ->unsigned()  
                   ->index();  
             $table->foreign('candidat_id')  
-                  ->references('id_candidat')  
+                  ->references('id')  
                   ->on('candidats')  
                   ->onDelete('cascade');  
   
@@ -26,7 +26,7 @@ class CreateApplicationsTable extends Migration
                   ->unsigned()  
                   ->index();  
             $table->foreign('offer_id')  
-                  ->references('id_offer')  
+                  ->references('id')  
                   ->on('offers')  
                   ->onDelete('cascade');  
   

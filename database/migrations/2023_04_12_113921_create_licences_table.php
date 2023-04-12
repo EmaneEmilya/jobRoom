@@ -14,13 +14,13 @@ class CreateLicensesTable extends Migration
     public function up()
     {
         Schema::create('licenses', function (Blueprint $table) {
-            $table->id_license();
+            $table->id();
             $table->boolean('status');
             $table->integer('duration');
             $table->unsignedBigInteger('admin_id')->nullable();
-            $table->foreign('admin_id')->references('id_admin')->on('admins');
+            $table->foreign('admin_id')->references('id')->on('admins');
             $table->unsignedBigInteger('recuiter_id')->nullable();
-            $table->foreign('recuiter_id')->references('id_recuiter')->on('recuiters');
+            $table->foreign('recuiter_id')->references('id')->on('recuiters');
             $table->timestamps();
         });
     }

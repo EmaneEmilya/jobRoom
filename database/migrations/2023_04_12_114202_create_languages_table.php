@@ -14,11 +14,11 @@ class CreateLanguagesTable extends Migration
     public function up()
     {
         Schema::create('languages', function (Blueprint $table) {
-            $table->id_language();
+            $table->id();
             $table->string('name');
             $table->string('level');
             $table->unsignedBigInteger('candidat_id')->nullable;
-            $table->foreign('candidat_id')->references('id_candidat')->on('candidats');
+            $table->foreign('candidat_id')->references('id')->on('candidats');
             $table->timestamps();
         });
     }

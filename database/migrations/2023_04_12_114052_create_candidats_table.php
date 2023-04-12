@@ -14,16 +14,18 @@ class CreateCandidatsTable extends Migration
     public function up()
     {
         Schema::create('candidats', function (Blueprint $table) {
-            $table->id_candidat();
+            $table->id();
             $table->string('fullName')->index();
-            $table->string('email');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->rememberToken();
             $table->string('contact');
             $table->string('city');
             $table->text('region');
             $table->timestamps();
             $table->unsignedBigInteger('recruiter_id')->nullable();
-            $table->foreign('recruiter_id')->references('id_recruiter')->on('recruiters');
+            $table->foreign('recruiter_id')->references('id')->on('recruiters');
         });
     }
 
