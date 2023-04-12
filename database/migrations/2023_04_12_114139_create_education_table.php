@@ -17,7 +17,7 @@ class CreateEducationTable extends Migration
             $table->id_education();
             $table->string('school');
             $table->date('startDate');
-            $table->date(endDate');
+            $table->date('endDate');
             $table->timestamps();
         });
     }
