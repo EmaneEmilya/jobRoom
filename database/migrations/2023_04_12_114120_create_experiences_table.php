@@ -21,6 +21,8 @@ class CreateExperiencesTable extends Migration
             $table->string('city');
             $table->date('startDate');
             $table->date('endDate');
+            $table->unsignedBigInteger('candidat_id')->nullable();
+            $table->foreign('candidat_id')->references('id_candidat')->on('candidats');
             $table->timestamps();
         });
     }
