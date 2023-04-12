@@ -18,6 +18,8 @@ class CreateEducationTable extends Migration
             $table->string('school');
             $table->date('startDate');
             $table->date('endDate');
+            $table->unsignedBigInteger('candidat_id')->nullable();
+            $table->foreign('candidat_id')->references('id_candidat')->on('candidats');
             $table->timestamps();
         });
     }
