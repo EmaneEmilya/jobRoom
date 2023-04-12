@@ -17,6 +17,8 @@ class CreateCompetencesTable extends Migration
             $table->id_competence();
             $table->string('name');
             $table->string('level');
+            $table->unsignedBigInteger('candidat_id')->nullable();
+            $table->foreign('candidat_id')->references('id_candidat')->on('candidats');
             $table->timestamps();
         });
     }
