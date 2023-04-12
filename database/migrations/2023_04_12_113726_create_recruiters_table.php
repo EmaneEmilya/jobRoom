@@ -14,7 +14,12 @@ class CreateRecruitersTable extends Migration
     public function up()
     {
         Schema::create('recruiters', function (Blueprint $table) {
-            $table->id();
+            $table->id_recruiter();
+            $table->string('fullName');
+            $table->string('email');
+            $table->string('password');
+            $table->string('city');
+            $table->string('society');
             $table->timestamps();
         });
     }
