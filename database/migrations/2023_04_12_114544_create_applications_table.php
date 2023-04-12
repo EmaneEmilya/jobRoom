@@ -14,8 +14,23 @@ class CreateApplicationsTable extends Migration
     public function up()
     {
         Schema::create('applications', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->integer('candidat_id')  
+                  ->unsigned()  
+                  ->index();  
+            $table->foreign('candidat_id')  
+                  ->references('id_candidat')  
+                  ->on('candidats')  
+                  ->onDelete('cascade');  
+  
+            $table->integer('offer_id')  
+                  ->unsigned()  
+                  ->index();  
+            $table->foreign('offer_id')  
+                  ->references('id_offer')  
+                  ->on('offers')  
+                  ->onDelete('cascade');  
+  
+            $table->primary(['candidat_id', 'offer_id']); 
         });
     }
 
