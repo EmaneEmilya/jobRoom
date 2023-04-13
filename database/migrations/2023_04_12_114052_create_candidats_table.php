@@ -15,7 +15,7 @@ class CreateCandidatsTable extends Migration
     {
         Schema::create('candidats', function (Blueprint $table) {
             $table->id();
-            $table->string('fullName')->index();
+            $table->string('fullName');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
